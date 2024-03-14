@@ -1,2 +1,2 @@
---Selects all datababe
-SELECT (*)
+-- List all databases
+SHOW DATABASES;
