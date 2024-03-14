@@ -1,0 +1,2 @@
+--Selects all datababe
+SELECT (*)
