@@ -13,7 +13,7 @@ if (isNaN(num)) {
     let row = '';
     // Loop to construct each row
     for (let j = 0; j < num; j++) {
-      row += 'x'; // Add 'x' to the row
+      row += 'X'; // Add 'x' to the row
     }
     console.log(row); // Print the row
   }
