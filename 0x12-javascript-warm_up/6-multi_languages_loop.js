@@ -1,7 +1,5 @@
 #!/usr/bin/node
 
-const { argv } = require('node:process');
-
 const array = [
   'C is fun',
   'Python is cool',
