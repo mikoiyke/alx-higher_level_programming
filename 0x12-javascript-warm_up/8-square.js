@@ -4,6 +4,7 @@ const { argv } = require('process');
 
 const num = Number.parseInt(argv[2]);
 
+
 if (isNaN(num)) {
   console.log('Missing size');
 } else {
