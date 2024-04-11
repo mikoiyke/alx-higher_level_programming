@@ -1,17 +1,17 @@
 #!/usr/bin/node
-const dict = require('./101-data').dict;
+const { dict } = require('./101-data.js');
 
-const totalist = Object.entries(dict);
-const vals = Object.values(dict);
-const valsUniq = [...new Set(vals)];
 const newDict = {};
-for (const j in valsUniq) {
-  const list = [];
-  for (const k in totalist) {
-    if (totalist[k][1] === valsUniq[j]) {
-      list.unshift(totalist[k][0]);
-    }
+
+for (const [key, value] of Object.entries(dict)) {
+  // Check if the value exists as a key in newDict
+  if (newDict[value]) {
+    // If the key exists, push the original key into the array
+    newDict[value].push(key);
+  } else {
+    // If the key does not exist, create an array and add the original key
+    newDict[value] = [key];
   }
-  newDict[valsUniq[j]] = list;
 }
+
 console.log(newDict);
