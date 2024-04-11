@@ -1,11 +1,10 @@
 #!/usr/bin/node
 
-const { list } = require('./100-data');
+const { list } = require('./100-data.js');
 
-let i = 0;
+console.log(list); // Print the initial list
 
-const map1 = list.map((x) => x * 1);
-const map2 = list.map((x) => x * i++);
+const mappedList = list.map((currentValue, index) => currentValue * index);
 
-console.log(map1);
-console.log(map2);
+console.log(mappedList); // Print the new list after the map operation
+
