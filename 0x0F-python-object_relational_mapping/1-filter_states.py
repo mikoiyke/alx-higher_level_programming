@@ -26,7 +26,8 @@ def main():
     cur = db.cursor()
 
     # SQL query to fetch states starting with 'N', sorted by 'id'
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    query = """SELECT * FROM states
+	WHERE BINARY name LIKE 'N%' ORDER BY id ASC"""
     cur.execute(query)
 
     # Fetch all the results
