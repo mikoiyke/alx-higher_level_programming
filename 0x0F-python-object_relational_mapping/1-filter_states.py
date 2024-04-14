@@ -15,19 +15,19 @@ def main():
     username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
 
     # Connect to the MySQL database
+    # Connect to the MySQL database
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=username,
         passwd=password,
-        db=db_name)
-
+        db=db_name,
+        charset="utf8")
     # Create a cursor object to execute SQL queries
     cur = db.cursor()
 
     # SQL query to fetch states starting with 'N', sorted by 'id'
-    query = """SELECT * FROM states
-               WHERE BINARY name LIKE 'N%' ORDER BY id ASC"""
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
     cur.execute(query)
 
     # Fetch all the results
@@ -37,9 +37,9 @@ def main():
     for state in states:
         print(state)
 
-    # Properly close the cursor and the database connection
-    cur.close()
-    db.close()
+    # Close the cursor and the connection
+        cur.close()
+        db.close()
 
 
 if __name__ == "__main__":
