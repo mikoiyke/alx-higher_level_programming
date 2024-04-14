@@ -6,8 +6,9 @@ Script to list all states from the database `hbtn_0e_0_usa` that start with 'N'
 import MySQLdb
 import sys
 
+
 def main(username, password, db_name, search_param):
-    
+
 	db = MySQLdb.connect(
         host="localhost",
         port=3306,
