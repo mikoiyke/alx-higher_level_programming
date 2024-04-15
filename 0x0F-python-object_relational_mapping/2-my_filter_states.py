@@ -6,6 +6,7 @@ Script to list all states from the database `hbtn_0e_0_usa` that match a name
 import MySQLdb
 import sys
 
+
 def main():
     if len(sys.argv) != 5:
         print("Usage: ./script.py username password database_name state_name")
@@ -42,6 +43,7 @@ def main():
     # Close the cursor and the connection
     cur.close()
     db.close()
+
 
 if __name__ == '__main__':
     main()
