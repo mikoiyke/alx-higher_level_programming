@@ -1,12 +1,18 @@
 #!/usr/bin/python3
 """
-Start link class to table in database
+Module containing the class definition of a State and Base instance.
 """
-import sys
-from model_state import Base, State
 
-from sqlalchemy import (create_engine)
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import declarative_base
 
-if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+# engine = create_engine(db_url)
+Base = declarative_base()
+
+
+class State(Base):
+    """State class to implements states table in SQl db."""
+    __tablename__ = 'states'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(128), nullable=False)
