@@ -1,46 +1,35 @@
 #!/usr/bin/python3
 """
-A script that takes in an argument and displays all values in the states table
-of the database `hbtn_0e_0_usa`
-where name matches the argument exactly.
+Displays all values in `states` table where name matches argument
 """
-import MySQLdb
-import sys
 
+if __name__ == '__main__':
+    import MySQLdb
+    import sys
 
-def main():
-    if len(sys.argv) != 5:
-        return
+    argv = sys.argv
+    db = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3]
+    )
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-
-    # Establish a database connection
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, passwd=password, db=database)
-
-    # Create a cursor object
     cur = db.cursor()
 
-    # Prepare SQL query string
-    query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id ASC"
+    query = """
+        SELECT *
+        FROM states
+        WHERE BINARY name='{}'
+        ORDER BY states.id ASC
+    """.format(argv[4])
 
-    # Execute the SQL query
-    cur.execute(query, (state_name,))
+    cur.execute(query)
+    rows = cur.fetchall()
 
-    # Fetch all results
-    states = cur.fetchall()
+    for row in rows:
+        print(row)
 
-    # Print each state
-    for state in states:
-        print(state)
-
-    # Close cursor and connection
     cur.close()
     db.close()
-
-
-if __name__ == "__main__":
-    main()
