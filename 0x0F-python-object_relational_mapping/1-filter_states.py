@@ -15,14 +15,13 @@ def main():
     username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
 
     # Connect to the MySQL database
-    # Connect to the MySQL database
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=username,
         passwd=password,
-        db=db_name,
-        charset="utf8")
+        db=db_name)
+
     # Create a cursor object to execute SQL queries
     cur = db.cursor()
 
@@ -38,8 +37,8 @@ def main():
         print(state)
 
     # Close the cursor and the connection
-        cur.close()
-        db.close()
+    cur.close()
+    db.close()
 
 
 if __name__ == "__main__":
