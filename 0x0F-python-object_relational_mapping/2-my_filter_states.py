@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """
-A script that takes in an argument and displays all values in the states table of the database `hbtn_0e_0_usa`
+A script that takes in an argument and displays all values in the states table
+of the database `hbtn_0e_0_usa`
 where name matches the argument exactly.
 """
 import MySQLdb
 import sys
+
 
 def main():
     if len(sys.argv) != 5:
@@ -16,7 +18,8 @@ def main():
     state_name = sys.argv[4]
 
     # Establish a database connection
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=username, passwd=password, db=database)
 
     # Create a cursor object
     cur = db.cursor()
@@ -37,6 +40,7 @@ def main():
     # Close cursor and connection
     cur.close()
     db.close()
+
 
 if __name__ == "__main__":
     main()
