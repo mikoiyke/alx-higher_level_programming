@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """
-Script to list all states from the
-database `hbtn_0e_0_usa` that match a specified name
+Script to list all states from the database `hbtn_0e_0_usa` that match a name
 """
 
 import MySQLdb
 import sys
-
 
 def main():
     if len(sys.argv) != 5:
