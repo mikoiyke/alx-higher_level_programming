@@ -18,7 +18,6 @@ def main(username, password, dbname):
 
     states = session.query(State).filter(State.name.like('%a%')).all()
 
-
     for rows in states:
         print(f"{rows.id}: {rows.name}")
     session.close()
