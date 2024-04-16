@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Lists all State objects that contain the letter a from the database
+ prints the State object with the name passed as argument from the database
 """
 
 from sys import argv
@@ -19,7 +19,7 @@ def main(username, password, dbname, search):
     states = session.query(State).filter(State.name == argv[4]).first()
 
     if (states):
-        print(f"{states.name}")
+        print(f"{states.id}")
     else:
         print('Not found')
 

@@ -10,8 +10,8 @@ from model_state import Base, State
 
 
 def main(username, password, dbname):
-    db_url = f"""mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"""
-    engine = create_engine(db_url)
+    db_u = f"""mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"""
+    engine = create_engine(db_u)
 
     Session = sessionmaker(bind=engine)
     session = Session()
