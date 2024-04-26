@@ -1,3 +1,3 @@
 #!/bin/bash
-# sends a request to that URL, and displays the size of the body
-curl -sSL "$1" | awk 'NR==1 && $1 == 200'
+#GET request to the URL and display the response body (if status code is 200)
+	curl -s -w "\n%{http_code}" "$1" | awk 'END {if ($NF == 200) print $0}'
