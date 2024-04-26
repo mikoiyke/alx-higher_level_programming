@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # Send a request to the URL and store the response body in a temporary file
 response=$(curl -sS "$1")
 
