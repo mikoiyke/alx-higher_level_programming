@@ -1,3 +1,3 @@
 #!/usr/bin/bash
-# comment
-curl -sX $1
+# sends a DELETE request to the URL passed as the first argument
+curl -X DELETE $1
